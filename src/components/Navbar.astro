@@ -1,4 +1,6 @@
 ---
+import { site } from "../data/site";
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
@@ -7,15 +9,23 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-const pathname = Astro.url.pathname;
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+function isActive(href: string) {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 ---
 
 <header class="navbar">
-  <a class="brand" href="/">Pouria Alaei</a>
+  <a class="brand" href="/">{site.name}</a>
 
-  <nav>
+  <nav aria-label="Main navigation">
     {links.map((link) => (
-      <a class={pathname === link.href ? "active" : ""} href={link.href}>
+      <a class={isActive(link.href) ? "active" : ""} href={link.href}>
         {link.label}
       </a>
     ))}
