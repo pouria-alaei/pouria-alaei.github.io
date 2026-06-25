@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Experience | Pouria Alaei"
+  description="Professional experience of Pouria Alaei in embedded systems, Embedded Linux, Edge AI, and hardware/software integration."
+>
+  <main class="page">
+    <section class="section intro">
+      <p class="eyebrow">Experience</p>
+      <h1>Embedded engineering experience across real products.</h1>
+      <p class="lead">
+        My experience combines embedded software, hardware/software integration,
+        system architecture, industrial devices, and technical leadership.
+      </p>
+    </section>
+
+    <section class="timeline">
+      <article class="card item">
+        <p class="date">Current</p>
+        <h2>Senior Embedded Software Engineer / Technical Lead</h2>
+        <p>
+          Leading and contributing to embedded systems projects involving
+          Embedded Linux, Qt HMI, device networking, backend services,
+          hardware/software integration, and production-oriented system design.
+        </p>
+      </article>
+
+      <article class="card item">
+        <p class="date">Previous</p>
+        <h2>Embedded Systems Engineer</h2>
+        <p>
+          Designed and developed firmware, hardware interfaces, communication
+          modules, Linux-based device software, and industrial control features
+          for connected embedded products.
+        </p>
+      </article>
+
+      <article class="card item">
+        <p class="date">Technical Strengths</p>
+        <h2>Hardware + Software Integration</h2>
+        <p>
+          Experienced in debugging real hardware, integrating communication
+          modules, validating system behavior, and connecting low-level embedded
+          design with user-facing software and backend services.
+        </p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    color: #67e8f9;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    max-width: 900px;
+    margin: 12px 0 0;
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.05;
+  }
+
+  .lead {
+    max-width: 760px;
+    color: #cbd5e1;
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .timeline {
+    display: grid;
+    gap: 18px;
+    padding-bottom: 80px;
+  }
+
+  .date {
+    margin: 0 0 8px;
+    color: #67e8f9;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+    color: #93c5fd;
+  }
+
+  p {
+    color: #cbd5e1;
+    line-height: 1.7;
+  }
+</style>

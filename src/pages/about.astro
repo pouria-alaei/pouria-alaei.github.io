@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About | Pouria Alaei"
+  description="About Pouria Alaei, Senior Embedded Software Engineer focused on Embedded Linux, Edge AI, and hardware/software integration."
+>
+  <main class="page">
+    <section class="section intro">
+      <p class="eyebrow">About</p>
+      <h1>Engineering systems from hardware to software.</h1>
+
+      <p class="lead">
+        I am a Senior Embedded Software Engineer focused on building practical,
+        production-ready systems that connect embedded software, electronics,
+        Linux, connectivity, and intelligent edge applications.
+      </p>
+    </section>
+
+    <section class="content-grid">
+      <article class="card">
+        <h2>What I Do</h2>
+        <p>
+          I work across the full embedded product stack: hardware bring-up,
+          firmware, Embedded Linux, Qt-based HMI, backend services, networking,
+          communication protocols, and system-level integration.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Engineering Focus</h2>
+        <p>
+          My work is strongest where software and hardware meet: industrial
+          devices, IoT systems, edge AI applications, Linux-based embedded
+          platforms, and products that need reliable real-world operation.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Leadership</h2>
+        <p>
+          I have experience leading technical work, coordinating hardware and
+          software decisions, reviewing implementation risks, and turning
+          product requirements into practical engineering plans.
+        </p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    color: #67e8f9;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    max-width: 900px;
+    margin: 12px 0 0;
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.05;
+  }
+
+  .lead {
+    max-width: 760px;
+    color: #cbd5e1;
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    padding-bottom: 80px;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #93c5fd;
+  }
+
+  p {
+    color: #cbd5e1;
+    line-height: 1.7;
+  }
+</style>
