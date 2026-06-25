@@ -11,6 +11,35 @@ const {
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+const sameAs = [
+  site.github,
+  site.telegram,
+];
+
+if (!site.linkedin.includes("PUT-YOUR-LINKEDIN")) {
+  sameAs.push(site.linkedin);
+}
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.role,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  sameAs,
+  knowsAbout: [
+    "Embedded Linux",
+    "Embedded Systems",
+    "Edge AI",
+    "Hardware/Software Integration",
+    "Industrial IoT",
+    "Firmware",
+    "C/C++",
+    "Qt",
+  ],
+};
 ---
 
 <html lang="en">
@@ -36,6 +65,8 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
 
   <body>
