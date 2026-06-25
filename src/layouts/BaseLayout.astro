@@ -4,69 +4,64 @@ import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 import "../styles/global.css";
 
+type Props = {
+  title?: string;
+  description?: string;
+};
+
 const {
   title = site.title,
   description = site.description,
-  type = "website",
 } = Astro.props;
 
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
 
 const sameAs = [
   site.github,
+  site.linkedin,
   site.telegram,
 ];
 
-if (!site.linkedin.includes("PUT-YOUR-LINKEDIN")) {
-  sameAs.push(site.linkedin);
-}
-
-const structuredData = {
+const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: site.name,
   jobTitle: site.role,
   url: site.url,
-  email: `mailto:${site.email}`,
+  email: site.email,
   sameAs,
-  knowsAbout: [
-    "Embedded Linux",
-    "Embedded Systems",
-    "Edge AI",
-    "Hardware/Software Integration",
-    "Industrial IoT",
-    "Firmware",
-    "C/C++",
-    "Qt",
-  ],
+  knowsAbout: site.keywords,
+  description: site.description,
 };
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={site.keywords.join(", ")} />
     <meta name="author" content={site.name} />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#07111f" />
-
     <link rel="canonical" href={canonicalUrl} />
 
-    <meta property="og:type" content={type} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="Pouria Alaei Portfolio" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <meta name="theme-color" content="#020617" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
 
   <body>
