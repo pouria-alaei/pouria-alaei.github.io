@@ -51,3 +51,4 @@ export const projects = [
       "Created a compact GSM-based embedded device suitable for tracking, telemetry, and remote data collection applications.",
   },
 ];
+
