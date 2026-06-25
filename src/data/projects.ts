@@ -9,6 +9,7 @@ export type PortfolioProject = {
   tags: string[];
   impact: string;
   confidentialityNote: string;
+  cover?: string;
   gallery: string[];
 };
 

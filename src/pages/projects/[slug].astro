@@ -10,6 +10,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const hasImages = project.gallery.length > 0;
 ---
 
 <BaseLayout
@@ -39,7 +40,7 @@ const { project } = Astro.props;
           <strong>Hardware/Software Integration</strong>
 
           <p class="summary-label">Status</p>
-          <strong>Case study in progress</strong>
+          <strong>{hasImages ? "Visual evidence added" : "Images pending review"}</strong>
         </aside>
       </div>
     </section>
@@ -47,16 +48,24 @@ const { project } = Astro.props;
     <section class="visual-section card">
       <div>
         <p class="eyebrow">Visual Evidence</p>
-        <h2>Images will be added after review.</h2>
+        <h2>{hasImages ? "Project images" : "Images will be added after review."}</h2>
         <p>
           Real hardware photos, Altium screenshots, UI screenshots, and deployment images
-          will be added after removing sensitive customer, product, and implementation details.
+          will be added only after removing sensitive customer, product, and implementation details.
         </p>
       </div>
 
-      <div class="image-placeholder">
-        <span>Project Images</span>
-      </div>
+      {hasImages ? (
+        <div class="gallery">
+          {project.gallery.map((image) => (
+            <img src={image} alt={`${project.title} project image`} loading="lazy" />
+          ))}
+        </div>
+      ) : (
+        <div class="image-placeholder">
+          <span>Project Images</span>
+        </div>
+      )}
     </section>
 
     <section class="case-study">
@@ -194,6 +203,19 @@ const { project } = Astro.props;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 13px;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background: rgba(2, 6, 23, 0.45);
   }
 
   .case-study {
