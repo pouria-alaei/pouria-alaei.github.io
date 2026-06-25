@@ -9,6 +9,7 @@ export type PortfolioProject = {
   tags: string[];
   impact: string;
   confidentialityNote: string;
+  imageBase: string;
   cover?: string;
   gallery: string[];
 };
@@ -16,6 +17,7 @@ export type PortfolioProject = {
 export const projects: PortfolioProject[] = [
   {
     slug: "video-conference-system",
+    imageBase: "/images/projects/video-conference-system",
     title: "Video Conference System",
     subtitle:
       "Embedded video communication system with hardware/software integration and real-world deployment focus.",
@@ -40,6 +42,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     slug: "linux-conference-voting-system",
+    imageBase: "/images/projects/linux-conference-voting-system",
     title: "Linux Conference and Voting System",
     subtitle:
       "Linux-based wired conference and voting platform with HMI units, Ethernet communication, and central control.",
@@ -65,6 +68,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     slug: "mc60-gsm-opencpu-datalogger",
+    imageBase: "/images/projects/mc60-gsm-opencpu-datalogger",
     title: "MC60 GSM OpenCPU Datalogger",
     subtitle:
       "GSM/GNSS datalogger using Quectel MC60 OpenCPU with custom hardware and firmware.",
@@ -90,6 +94,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     slug: "diesel-generator-controller",
+    imageBase: "/images/projects/diesel-generator-controller",
     title: "Diesel Generator Controller",
     subtitle:
       "Industrial embedded controller for diesel generator monitoring, control, and field operation.",
@@ -115,6 +120,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     slug: "embedded-linux-vending-machine",
+    imageBase: "/images/projects/embedded-linux-vending-machine",
     title: "Embedded Linux Vending Machine Platform",
     subtitle:
       "Industrial vending machine platform with local HMI, backend services, networking, and payment integration.",
