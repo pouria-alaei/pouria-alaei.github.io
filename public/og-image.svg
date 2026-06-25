@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#020617"/>
+
+  <circle cx="1010" cy="120" r="220" fill="#0E7490" opacity="0.28"/>
+  <circle cx="170" cy="520" r="260" fill="#1D4ED8" opacity="0.22"/>
+
+  <path d="M80 140H270C300 140 300 90 330 90H520" stroke="#67E8F9" stroke-width="3" opacity="0.35"/>
+  <path d="M760 520H930C960 520 960 470 990 470H1120" stroke="#38BDF8" stroke-width="3" opacity="0.3"/>
+  <path d="M860 160H980C1010 160 1010 210 1040 210H1120" stroke="#2DD4BF" stroke-width="3" opacity="0.28"/>
+
+  <rect x="70" y="70" width="1060" height="490" rx="34" fill="#0F172A" fill-opacity="0.72" stroke="#1E293B"/>
+
+  <text x="120" y="190" fill="#67E8F9" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="2">
+    EMBEDDED LINUX • EDGE AI • HARDWARE/SOFTWARE INTEGRATION
+  </text>
+
+  <text x="120" y="300" fill="#E5EEF7" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800">
+    Pouria Alaei
+  </text>
+
+  <text x="120" y="375" fill="#93C5FD" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">
+    Senior Embedded Software Engineer
+  </text>
+
+  <text x="120" y="455" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="30">
+    Embedded systems, industrial IoT, firmware, Qt HMI, Linux platforms
+  </text>
+
+  <text x="120" y="515" fill="#67E8F9" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">
+    pouria-alaei.github.io
+  </text>
+</svg>
