@@ -20,12 +20,42 @@ const { project } = Astro.props;
     <section class="section hero">
       <a class="back" href="/projects">← Back to projects</a>
 
-      <p class="eyebrow">Featured Project</p>
-      <h1>{project.title}</h1>
-      <p class="lead">{project.subtitle}</p>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Featured Project</p>
+          <h1>{project.title}</h1>
+          <p class="lead">{project.subtitle}</p>
 
-      <div class="tags hero-tags">
-        {project.tags.map((tag) => <span>{tag}</span>)}
+          <div class="tags hero-tags">
+            {project.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </div>
+
+        <aside class="project-summary-card">
+          <p class="summary-label">Project Type</p>
+          <strong>{project.tags[0]}</strong>
+
+          <p class="summary-label">Main Focus</p>
+          <strong>Hardware/Software Integration</strong>
+
+          <p class="summary-label">Status</p>
+          <strong>Case study in progress</strong>
+        </aside>
+      </div>
+    </section>
+
+    <section class="visual-section card">
+      <div>
+        <p class="eyebrow">Visual Evidence</p>
+        <h2>Images will be added after review.</h2>
+        <p>
+          Real hardware photos, Altium screenshots, UI screenshots, and deployment images
+          will be added after removing sensitive customer, product, and implementation details.
+        </p>
+      </div>
+
+      <div class="image-placeholder">
+        <span>Project Images</span>
       </div>
     </section>
 
@@ -57,22 +87,6 @@ const { project } = Astro.props;
         <p>{project.impact}</p>
       </article>
 
-      <article class="card">
-        <h2>Images</h2>
-        {project.gallery.length > 0 ? (
-          <div class="gallery">
-            {project.gallery.map((image) => (
-              <img src={image} alt={`${project.title} project image`} loading="lazy" />
-            ))}
-          </div>
-        ) : (
-          <p class="muted">
-            Project images, Altium screenshots, and real hardware photos will be added after
-            confidentiality review.
-          </p>
-        )}
-      </article>
-
       <article class="card note">
         <h2>Confidentiality Note</h2>
         <p>{project.confidentialityNote}</p>
@@ -92,6 +106,13 @@ const { project } = Astro.props;
     color: #67e8f9;
     text-decoration: none;
     font-weight: 700;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 28px;
+    align-items: start;
   }
 
   .eyebrow {
@@ -116,6 +137,63 @@ const { project } = Astro.props;
 
   .hero-tags {
     margin-top: 28px;
+  }
+
+  .project-summary-card {
+    border: 1px solid rgba(103, 232, 249, 0.28);
+    background: rgba(15, 23, 42, 0.78);
+    border-radius: 22px;
+    padding: 24px;
+  }
+
+  .summary-label {
+    margin: 18px 0 6px;
+    color: #94a3b8;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+  }
+
+  .summary-label:first-child {
+    margin-top: 0;
+  }
+
+  .project-summary-card strong {
+    display: block;
+    color: #e5eef7;
+    line-height: 1.4;
+  }
+
+  .visual-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .visual-section h2 {
+    margin: 8px 0 0;
+  }
+
+  .image-placeholder {
+    min-height: 220px;
+    border: 1px dashed rgba(103, 232, 249, 0.45);
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background:
+      linear-gradient(135deg, rgba(103, 232, 249, 0.08), transparent),
+      rgba(2, 6, 23, 0.45);
+  }
+
+  .image-placeholder span {
+    color: #67e8f9;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 13px;
   }
 
   .case-study {
@@ -144,19 +222,14 @@ const { project } = Astro.props;
     margin-top: 10px;
   }
 
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 16px;
-    border: 1px solid rgba(148, 163, 184, 0.22);
-  }
-
   .note {
     border-color: rgba(103, 232, 249, 0.25);
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid,
+    .visual-section {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
