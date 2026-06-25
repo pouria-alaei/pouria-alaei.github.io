@@ -1,26 +1,71 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { projects } from "../../data/projects";
+import { site } from "../../data/site";
+
+const projectCount = projects.length;
+
+const focusAreas = [
+  "Embedded Linux",
+  "Industrial Embedded Systems",
+  "Hardware/Software Integration",
+  "Firmware",
+  "Networking",
+  "Edge AI",
+];
 ---
 
 <BaseLayout
-  title="Projects | Pouria Alaei"
-  description="Selected embedded systems, Embedded Linux, Edge AI, and hardware/software integration projects by Pouria Alaei."
+  title={`Projects | ${site.name}`}
+  description={`Selected embedded systems, Embedded Linux, Edge AI, and hardware/software integration projects by ${site.name}.`}
 >
   <main class="page">
     <section class="section intro">
       <p class="eyebrow">Selected Work</p>
-      <h1>Projects</h1>
+      <h1>Engineering Projects</h1>
+
       <p class="lead">
-        A selection of production-oriented embedded systems, industrial devices,
-        communication platforms, and hardware/software integration projects.
+        A focused selection of embedded systems, industrial devices, communication
+        platforms, and hardware/software integration projects. Each project will be
+        expanded with real photos, Altium screenshots, and deeper technical details
+        after confidentiality review.
       </p>
+
+      <div class="stats">
+        <div class="stat-card">
+          <strong>{projectCount}</strong>
+          <span>Featured Projects</span>
+        </div>
+
+        <div class="stat-card">
+          <strong>HW + SW</strong>
+          <span>Integration Focus</span>
+        </div>
+
+        <div class="stat-card">
+          <strong>Linux</strong>
+          <span>Embedded Platforms</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <h2 class="section-title">Focus Areas</h2>
+
+      <div class="tags">
+        {focusAreas.map((area) => <span>{area}</span>)}
+      </div>
     </section>
 
     <section class="projects-grid">
       {projects.map((project) => (
         <a class="project-card" href={`/projects/${project.slug}`}>
           <article class="card">
+            <div class="card-top">
+              <p class="project-label">Case Study</p>
+              <span>→</span>
+            </div>
+
             <h2>{project.title}</h2>
             <p>{project.summary}</p>
 
@@ -39,6 +84,11 @@ import { projects } from "../../data/projects";
     padding-bottom: 32px;
   }
 
+  .compact {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
   .eyebrow {
     color: #67e8f9;
     font-weight: 700;
@@ -46,16 +96,43 @@ import { projects } from "../../data/projects";
   }
 
   h1 {
+    max-width: 980px;
     margin: 12px 0 0;
     font-size: clamp(44px, 7vw, 76px);
     line-height: 1;
   }
 
   .lead {
-    max-width: 760px;
+    max-width: 840px;
     color: #cbd5e1;
     font-size: 20px;
     line-height: 1.7;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .stat-card {
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background: rgba(15, 23, 42, 0.62);
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .stat-card strong {
+    display: block;
+    color: #67e8f9;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .stat-card span {
+    color: #cbd5e1;
+    font-weight: 600;
   }
 
   .projects-grid {
@@ -81,9 +158,27 @@ import { projects } from "../../data/projects";
     border-color: rgba(103, 232, 249, 0.55);
   }
 
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #67e8f9;
+    font-weight: 800;
+    margin-bottom: 18px;
+  }
+
+  .project-label {
+    margin: 0;
+    color: #67e8f9;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   h2 {
     margin: 0;
     font-size: 22px;
+    color: #e5eef7;
   }
 
   p {
