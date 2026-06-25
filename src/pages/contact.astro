@@ -5,15 +5,17 @@ import { site } from "../data/site";
 
 <BaseLayout
   title={`Contact | ${site.name}`}
-  description={`Contact ${site.name} for embedded systems, Embedded Linux, Edge AI, and hardware/software integration opportunities.`}
+  description={`Contact ${site.name} for Embedded Linux, Edge AI, industrial embedded systems, and hardware/software integration opportunities.`}
 >
   <main class="page">
     <section class="section intro">
       <p class="eyebrow">Contact</p>
       <h1>Let’s connect.</h1>
+
       <p class="lead">
-        I am open to relevant embedded systems, Embedded Linux, Edge AI,
-        industrial IoT, and hardware/software integration opportunities.
+        I am open to relevant engineering opportunities in Embedded Linux,
+        embedded software, industrial IoT, edge AI, firmware, and hardware/software
+        integration.
       </p>
 
       <div class="actions">
@@ -24,32 +26,43 @@ import { site } from "../data/site";
     </section>
 
     <section class="content-grid">
-      <article class="card">
-        <h2>Email</h2>
+      <article class="card primary">
+        <h2>Best Contact</h2>
         <p>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          For professional opportunities, technical discussions, or collaboration,
+          email is the best way to contact me.
         </p>
+        <a class="contact-link" href={`mailto:${site.email}`}>{site.email}</a>
       </article>
 
       <article class="card">
         <h2>LinkedIn</h2>
         <p>
-          <a href={site.linkedin} target="_blank">LinkedIn Profile</a>
+          Connect with me professionally and view my career profile.
         </p>
+        <a class="contact-link" href={site.linkedin} target="_blank">
+          linkedin.com/in/pouria-alaeinezhad
+        </a>
       </article>
 
       <article class="card">
         <h2>GitHub</h2>
         <p>
-          <a href={site.github} target="_blank">github.com/pouria-alaei</a>
+          View my public repositories and engineering portfolio source.
         </p>
+        <a class="contact-link" href={site.github} target="_blank">
+          github.com/pouria-alaei
+        </a>
       </article>
 
       <article class="card">
         <h2>Telegram</h2>
         <p>
-          <a href={site.telegram} target="_blank">@Pooria_Alaei</a>
+          For quick messages and direct communication.
         </p>
+        <a class="contact-link" href={site.telegram} target="_blank">
+          @Pooria_Alaei
+        </a>
       </article>
     </section>
   </main>
@@ -69,7 +82,7 @@ import { site } from "../data/site";
   }
 
   .lead {
-    max-width: 760px;
+    max-width: 780px;
     color: #cbd5e1;
     font-size: 20px;
     line-height: 1.7;
@@ -89,14 +102,30 @@ import { site } from "../data/site";
     padding-bottom: 80px;
   }
 
+  .primary {
+    border-color: rgba(103, 232, 249, 0.35);
+  }
+
   h2 {
     margin-top: 0;
     color: #93c5fd;
   }
 
-  p,
-  a {
+  p {
     color: #cbd5e1;
     line-height: 1.7;
+  }
+
+  .contact-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #67e8f9;
+    font-weight: 700;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-link:hover {
+    text-decoration: underline;
   }
 </style>
