@@ -1,17 +1,200 @@
 ---
-
+const projects = [
+  {
+    title: "Embedded Linux Vending Machine Platform",
+    description:
+      "Designed and developed an industrial vending machine platform using Embedded Linux, Qt, backend services, networking, payment integration, and hardware/software integration.",
+    tags: ["Embedded Linux", "Qt", "Go", "Networking", "Industrial IoT"],
+  },
+  {
+    title: "Linux-Based Conference System",
+    description:
+      "Built a wired conference system with touch HMI units, Ethernet audio transport, central control, web management panel, and low-latency communication.",
+    tags: ["Linux", "Qt", "UDP Audio", "PoE", "System Design"],
+  },
+  {
+    title: "MC60 GSM OpenCPU Datalogger",
+    description:
+      "Developed a GSM/GNSS datalogger using Quectel MC60 OpenCPU, including hardware design, firmware development, cellular communication, and field testing.",
+    tags: ["OpenCPU", "GSM", "GNSS", "Firmware", "Hardware"],
+  },
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Pouria Alaei | Embedded Software Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Pouria Alaei, Embedded Software Engineer focused on Embedded Linux, Edge AI, and Hardware/Software Integration."
+    />
+  </head>
+
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Embedded Linux • Edge AI • Hardware/Software Integration</p>
+        <h1>Pouria Alaei</h1>
+        <h2>Senior Embedded Software Engineer</h2>
+        <p class="summary">
+          I design and build production-ready embedded systems that combine software,
+          electronics, Linux, connectivity, and AI at the edge.
+        </p>
+
+        <div class="links">
+          <a href="mailto:pouria.alaei.dev@gmail.com">Email</a>
+          <a href="https://github.com/pouria-alaei" target="_blank">GitHub</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Core Expertise</h3>
+        <div class="skills">
+          <span>Embedded Linux</span>
+          <span>C/C++</span>
+          <span>Qt</span>
+          <span>Edge AI</span>
+          <span>Hardware/Software Integration</span>
+          <span>Industrial IoT</span>
+          <span>Firmware</span>
+          <span>Networking</span>
+          <span>System Architecture</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Featured Projects</h3>
+        <div class="projects">
+          {projects.map((project) => (
+            <article class="card">
+              <h4>{project.title}</h4>
+              <p>{project.description}</p>
+              <div class="tags">
+                {project.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
+
+<style>
+  :root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #e5eef7;
+    background: #07111f;
+  }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(circle at top right, rgba(20, 184, 166, 0.2), transparent 35%),
+      radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 35%),
+      #07111f;
+  }
+
+  .page {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 72px 0;
+  }
+
+  .hero {
+    padding: 72px 0 56px;
+  }
+
+  .eyebrow {
+    color: #67e8f9;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    margin: 16px 0 0;
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: 0.95;
+  }
+
+  h2 {
+    margin: 16px 0 0;
+    font-size: clamp(24px, 4vw, 40px);
+    color: #93c5fd;
+    font-weight: 600;
+  }
+
+  .summary {
+    max-width: 720px;
+    margin-top: 24px;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #cbd5e1;
+  }
+
+  .links {
+    display: flex;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    color: #07111f;
+    background: #67e8f9;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: 999px;
+  }
+
+  .section {
+    margin-top: 56px;
+  }
+
+  h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .skills,
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skills span,
+  .tags span {
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: rgba(15, 23, 42, 0.75);
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: #cbd5e1;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    padding: 24px;
+    border-radius: 22px;
+    background: rgba(15, 23, 42, 0.76);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+  }
+
+  .card h4 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .card p {
+    color: #cbd5e1;
+    line-height: 1.65;
+  }
+</style>
