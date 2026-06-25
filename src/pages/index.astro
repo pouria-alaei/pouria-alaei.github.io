@@ -1,27 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/projects";
+import { site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Pouria Alaei | Embedded Software Engineer"
-  description="Portfolio of Pouria Alaei, Embedded Software Engineer focused on Embedded Linux, Edge AI, and Hardware/Software Integration."
+  title={site.title}
+  description={site.description}
 >
   <main class="page">
     <section class="hero">
-      <p class="eyebrow">Embedded Linux • Edge AI • Hardware/Software Integration</p>
+      <p class="eyebrow">{site.tagline}</p>
 
-      <h1>Pouria Alaei</h1>
-      <h2>Senior Embedded Software Engineer</h2>
+      <h1>{site.name}</h1>
+      <h2>{site.role}</h2>
 
       <p class="summary">
-        I design and build production-ready embedded systems that combine software,
-        electronics, Linux, connectivity, and AI at the edge.
+        {site.summary}
       </p>
 
       <div class="links">
-        <a class="button" href="mailto:pouria.alaei.dev@gmail.com">Email</a>
-        <a class="button secondary" href="https://github.com/pouria-alaei" target="_blank">
+        <a class="button" href={`mailto:${site.email}`}>Email</a>
+        <a class="button secondary" href={site.github} target="_blank">
           GitHub
         </a>
       </div>

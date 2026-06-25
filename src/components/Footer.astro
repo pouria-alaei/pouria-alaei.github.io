@@ -1,18 +1,18 @@
 ---
-import { contact } from "../data/contact";
+import { site } from "../data/site";
 ---
 
 <footer class="footer">
   <div>
-    <strong>Pouria Alaei</strong>
-    <p>Embedded Linux • Edge AI • Hardware/Software Integration</p>
+    <strong>{site.name}</strong>
+    <p>{site.tagline}</p>
   </div>
 
   <div class="links">
-    <a href={`mailto:${contact.email}`}>Email</a>
-    <a href={contact.linkedin} target="_blank">LinkedIn</a>
-    <a href={contact.github} target="_blank">GitHub</a>
-    <a href={contact.telegram} target="_blank">Telegram</a>
+    <a href={`mailto:${site.email}`}>Email</a>
+    <a href={site.linkedin} target="_blank">LinkedIn</a>
+    <a href={site.github} target="_blank">GitHub</a>
+    <a href={site.telegram} target="_blank">Telegram</a>
   </div>
 </footer>
 

@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { contact } from "../data/contact";
+import { site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Contact | Pouria Alaei"
-  description="Contact Pouria Alaei for embedded systems, Embedded Linux, Edge AI, and hardware/software integration opportunities."
+  title={`Contact | ${site.name}`}
+  description={`Contact ${site.name} for embedded systems, Embedded Linux, Edge AI, and hardware/software integration opportunities.`}
 >
   <main class="page">
     <section class="section intro">
@@ -17,9 +17,9 @@ import { contact } from "../data/contact";
       </p>
 
       <div class="actions">
-        <a class="button" href={`mailto:${contact.email}`}>Email Me</a>
-        <a class="button secondary" href={contact.linkedin} target="_blank">LinkedIn</a>
-        <a class="button secondary" href={contact.telegram} target="_blank">Telegram</a>
+        <a class="button" href={`mailto:${site.email}`}>Email Me</a>
+        <a class="button secondary" href={site.linkedin} target="_blank">LinkedIn</a>
+        <a class="button secondary" href={site.telegram} target="_blank">Telegram</a>
       </div>
     </section>
 
@@ -27,28 +27,28 @@ import { contact } from "../data/contact";
       <article class="card">
         <h2>Email</h2>
         <p>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
       </article>
 
       <article class="card">
         <h2>LinkedIn</h2>
         <p>
-          <a href={contact.linkedin} target="_blank">LinkedIn Profile</a>
+          <a href={site.linkedin} target="_blank">LinkedIn Profile</a>
         </p>
       </article>
 
       <article class="card">
         <h2>GitHub</h2>
         <p>
-          <a href={contact.github} target="_blank">github.com/pouria-alaei</a>
+          <a href={site.github} target="_blank">github.com/pouria-alaei</a>
         </p>
       </article>
 
       <article class="card">
         <h2>Telegram</h2>
         <p>
-          <a href={contact.telegram} target="_blank">@Pooria_Alaei</a>
+          <a href={site.telegram} target="_blank">@Pooria_Alaei</a>
         </p>
       </article>
     </section>
