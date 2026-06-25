@@ -1,48 +1,61 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
 ---
 
 <BaseLayout
-  title="About | Pouria Alaei"
-  description="About Pouria Alaei, Senior Embedded Software Engineer focused on Embedded Linux, Edge AI, and hardware/software integration."
+  title={`About | ${site.name}`}
+  description={`About ${site.name}, Senior Embedded Software Engineer focused on Embedded Linux, Edge AI, and hardware/software integration.`}
 >
   <main class="page">
     <section class="section intro">
       <p class="eyebrow">About</p>
-      <h1>Engineering systems from hardware to software.</h1>
+      <h1>Engineering embedded products from hardware to software.</h1>
 
       <p class="lead">
         I am a Senior Embedded Software Engineer focused on building practical,
-        production-ready systems that connect embedded software, electronics,
-        Linux, connectivity, and intelligent edge applications.
+        production-ready embedded systems that connect electronics, firmware,
+        Embedded Linux, user interfaces, networking, and intelligent edge applications.
       </p>
     </section>
 
     <section class="content-grid">
       <article class="card">
-        <h2>What I Do</h2>
+        <h2>Engineering Profile</h2>
         <p>
-          I work across the full embedded product stack: hardware bring-up,
-          firmware, Embedded Linux, Qt-based HMI, backend services, networking,
-          communication protocols, and system-level integration.
+          My work sits at the intersection of embedded software and hardware.
+          I design and integrate systems where firmware, Linux services, device
+          interfaces, communication modules, industrial IO, and user-facing software
+          must work together reliably.
         </p>
       </article>
 
       <article class="card">
-        <h2>Engineering Focus</h2>
+        <h2>Core Strengths</h2>
         <p>
-          My work is strongest where software and hardware meet: industrial
-          devices, IoT systems, edge AI applications, Linux-based embedded
-          platforms, and products that need reliable real-world operation.
+          I have hands-on experience with Embedded Linux, C/C++, Qt-based HMI,
+          industrial IoT devices, cellular communication, hardware bring-up,
+          system debugging, and hardware/software integration for real products.
         </p>
       </article>
 
       <article class="card">
-        <h2>Leadership</h2>
+        <h2>Edge AI and Robotics Background</h2>
         <p>
-          I have experience leading technical work, coordinating hardware and
-          software decisions, reviewing implementation risks, and turning
-          product requirements into practical engineering plans.
+          With an academic background in Electrical Engineering, AI, and Robotics,
+          I am especially interested in edge AI systems, intelligent devices,
+          computer vision applications, and practical embedded platforms that bring
+          intelligence closer to the hardware.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Technical Leadership</h2>
+        <p>
+          I also work as a technical lead, turning product requirements into
+          engineering plans, coordinating hardware and software decisions, reviewing
+          implementation risks, and helping teams move from prototype to deployable
+          embedded systems.
         </p>
       </article>
     </section>
@@ -57,14 +70,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
 
   h1 {
-    max-width: 900px;
+    max-width: 980px;
     margin: 12px 0 0;
     font-size: clamp(42px, 7vw, 72px);
     line-height: 1.05;
   }
 
   .lead {
-    max-width: 760px;
+    max-width: 820px;
     color: #cbd5e1;
     font-size: 20px;
     line-height: 1.7;

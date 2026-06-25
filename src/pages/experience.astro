@@ -1,49 +1,72 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
 ---
 
 <BaseLayout
-  title="Experience | Pouria Alaei"
-  description="Professional experience of Pouria Alaei in embedded systems, Embedded Linux, Edge AI, and hardware/software integration."
+  title={`Experience | ${site.name}`}
+  description={`Professional experience of ${site.name} in embedded systems, Embedded Linux, Edge AI, and hardware/software integration.`}
 >
   <main class="page">
     <section class="section intro">
       <p class="eyebrow">Experience</p>
-      <h1>Embedded engineering experience across real products.</h1>
+      <h1>Building embedded systems for real products and industrial environments.</h1>
+
       <p class="lead">
-        My experience combines embedded software, hardware/software integration,
-        system architecture, industrial devices, and technical leadership.
+        My experience combines embedded software development, hardware/software
+        integration, Linux-based device platforms, industrial systems, communication
+        modules, and technical leadership.
       </p>
     </section>
 
     <section class="timeline">
       <article class="card item">
-        <p class="date">Current</p>
+        <p class="date">Current Focus</p>
         <h2>Senior Embedded Software Engineer / Technical Lead</h2>
         <p>
-          Leading and contributing to embedded systems projects involving
-          Embedded Linux, Qt HMI, device networking, backend services,
-          hardware/software integration, and production-oriented system design.
+          Leading and contributing to embedded systems projects involving Embedded
+          Linux, Qt HMI, device networking, backend services, industrial IO,
+          payment and communication integration, and production-oriented system design.
         </p>
       </article>
 
       <article class="card item">
-        <p class="date">Previous</p>
-        <h2>Embedded Systems Engineer</h2>
+        <p class="date">Embedded Linux and Device Platforms</p>
+        <h2>Linux-Based Product Development</h2>
         <p>
-          Designed and developed firmware, hardware interfaces, communication
-          modules, Linux-based device software, and industrial control features
-          for connected embedded products.
+          Designed and integrated Linux-based embedded platforms for industrial and
+          communication devices, including local HMI, system services, networking,
+          configuration interfaces, and device-level behavior.
         </p>
       </article>
 
       <article class="card item">
-        <p class="date">Technical Strengths</p>
-        <h2>Hardware + Software Integration</h2>
+        <p class="date">Firmware and Hardware Integration</p>
+        <h2>Low-Level Embedded Development</h2>
         <p>
-          Experienced in debugging real hardware, integrating communication
-          modules, validating system behavior, and connecting low-level embedded
-          design with user-facing software and backend services.
+          Developed firmware and integrated hardware interfaces for embedded products,
+          including cellular modules, IO handling, sensors, communication protocols,
+          hardware bring-up, and field debugging.
+        </p>
+      </article>
+
+      <article class="card item">
+        <p class="date">Industrial and Communication Systems</p>
+        <h2>Product-Level System Integration</h2>
+        <p>
+          Worked on systems such as vending machines, conference and voting platforms,
+          GSM/GNSS dataloggers, diesel generator controllers, and video communication
+          systems with a focus on reliability, integration, and practical operation.
+        </p>
+      </article>
+
+      <article class="card item">
+        <p class="date">Technical Direction</p>
+        <h2>Architecture, Debugging, and Delivery</h2>
+        <p>
+          Experienced in breaking down complex product requirements, reviewing system
+          risks, coordinating embedded hardware and software tasks, debugging across
+          multiple layers, and preparing systems for real-world use.
         </p>
       </article>
     </section>
@@ -58,14 +81,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
 
   h1 {
-    max-width: 900px;
+    max-width: 980px;
     margin: 12px 0 0;
     font-size: clamp(42px, 7vw, 72px);
     line-height: 1.05;
   }
 
   .lead {
-    max-width: 760px;
+    max-width: 820px;
     color: #cbd5e1;
     font-size: 20px;
     line-height: 1.7;
