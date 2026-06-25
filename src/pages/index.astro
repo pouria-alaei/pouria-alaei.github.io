@@ -56,7 +56,7 @@ import { site } from "../data/site";
       </div>
 
       <div class="projects">
-        {projects.slice(0, 3).map((project) => (
+        {projects.map((project) => (
           <a class="project-card" href={`/projects/${project.slug}`}>
             <article class="card">
               <h4>{project.title}</h4>
