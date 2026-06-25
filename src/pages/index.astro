@@ -2,6 +2,42 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/projects";
 import { site } from "../data/site";
+
+const expertise = [
+  "Embedded Linux",
+  "C/C++",
+  "Qt HMI",
+  "Firmware",
+  "Industrial IoT",
+  "Hardware/Software Integration",
+  "Networking",
+  "Cellular Communication",
+  "Edge AI",
+  "System Architecture",
+];
+
+const focusAreas = [
+  {
+    title: "Embedded Linux Platforms",
+    description:
+      "Linux-based device software, local HMI, system services, networking, configuration interfaces, and production-oriented integration.",
+  },
+  {
+    title: "Hardware/Software Integration",
+    description:
+      "Bringing up real hardware, integrating IO, communication modules, sensors, embedded boards, and debugging behavior across system layers.",
+  },
+  {
+    title: "Industrial Embedded Systems",
+    description:
+      "Practical embedded products such as vending machines, conference systems, dataloggers, generator controllers, and connected industrial devices.",
+  },
+  {
+    title: "Edge AI and Intelligent Devices",
+    description:
+      "Embedded systems that combine AI/robotics background with real hardware constraints, device-level software, and edge deployment needs.",
+  },
+];
 ---
 
 <BaseLayout
@@ -28,18 +64,31 @@ import { site } from "../data/site";
     </section>
 
     <section class="section">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">What I Build</h3>
+          <p class="muted">
+            Product-level embedded systems that connect software, electronics,
+            Linux, connectivity, and real-world operation.
+          </p>
+        </div>
+      </div>
+
+      <div class="focus-grid">
+        {focusAreas.map((area) => (
+          <article class="card">
+            <h4>{area.title}</h4>
+            <p>{area.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
       <h3 class="section-title">Core Expertise</h3>
 
       <div class="skills">
-        <span>Embedded Linux</span>
-        <span>C/C++</span>
-        <span>Qt</span>
-        <span>Edge AI</span>
-        <span>Hardware/Software Integration</span>
-        <span>Industrial IoT</span>
-        <span>Firmware</span>
-        <span>Networking</span>
-        <span>System Architecture</span>
+        {expertise.map((item) => <span>{item}</span>)}
       </div>
     </section>
 
@@ -48,7 +97,8 @@ import { site } from "../data/site";
         <div>
           <h3 class="section-title">Featured Projects</h3>
           <p class="muted">
-            Selected embedded systems, industrial devices, and hardware/software integration projects.
+            Selected embedded systems, industrial devices, and hardware/software
+            integration projects.
           </p>
         </div>
 
@@ -98,7 +148,7 @@ import { site } from "../data/site";
   }
 
   .summary {
-    max-width: 720px;
+    max-width: 760px;
     margin-top: 24px;
     font-size: 20px;
     line-height: 1.7;
@@ -110,6 +160,37 @@ import { site } from "../data/site";
     gap: 14px;
     margin-top: 32px;
     flex-wrap: wrap;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .section-header p {
+    margin: 0;
+    max-width: 760px;
+  }
+
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  .focus-grid h4,
+  .card h4 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .focus-grid p,
+  .card p {
+    color: #cbd5e1;
+    line-height: 1.65;
   }
 
   .skills {
@@ -124,18 +205,6 @@ import { site } from "../data/site";
     padding: 8px 12px;
     border-radius: 999px;
     color: #cbd5e1;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 24px;
-  }
-
-  .section-header p {
-    margin: 0;
   }
 
   .text-link {
@@ -166,16 +235,6 @@ import { site } from "../data/site";
   .project-card:hover .card {
     transform: translateY(-4px);
     border-color: rgba(103, 232, 249, 0.55);
-  }
-
-  .card h4 {
-    margin: 0;
-    font-size: 20px;
-  }
-
-  .card p {
-    color: #cbd5e1;
-    line-height: 1.65;
   }
 
   @media (max-width: 720px) {
