@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { contact } from "../data/contact";
 ---
 
 <BaseLayout
@@ -16,10 +17,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </p>
 
       <div class="actions">
-        <a class="button" href="mailto:pouria.alaei.dev@gmail.com">Email Me</a>
-        <a class="button secondary" href="https://github.com/pouria-alaei" target="_blank">
-          GitHub
-        </a>
+        <a class="button" href={`mailto:${contact.email}`}>Email Me</a>
+        <a class="button secondary" href={contact.linkedin} target="_blank">LinkedIn</a>
+        <a class="button secondary" href={contact.telegram} target="_blank">Telegram</a>
       </div>
     </section>
 
@@ -27,22 +27,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <article class="card">
         <h2>Email</h2>
         <p>
-          <a href="mailto:pouria.alaei.dev@gmail.com">pouria.alaei.dev@gmail.com</a>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>LinkedIn</h2>
+        <p>
+          <a href={contact.linkedin} target="_blank">LinkedIn Profile</a>
         </p>
       </article>
 
       <article class="card">
         <h2>GitHub</h2>
         <p>
-          <a href="https://github.com/pouria-alaei" target="_blank">github.com/pouria-alaei</a>
+          <a href={contact.github} target="_blank">github.com/pouria-alaei</a>
         </p>
       </article>
 
       <article class="card">
-        <h2>Focus Areas</h2>
+        <h2>Telegram</h2>
         <p>
-          Embedded Linux, C/C++, Qt, Edge AI, industrial devices, IoT,
-          firmware, and hardware/software integration.
+          <a href={contact.telegram} target="_blank">@Pooria_Alaei</a>
         </p>
       </article>
     </section>
