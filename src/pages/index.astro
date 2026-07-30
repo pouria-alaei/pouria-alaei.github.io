@@ -4,6 +4,8 @@ import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../data/projects";
 import { site } from "../data/site";
 
+const featuredProjects = projects.filter((project) => project.featured);
+
 const expertise = [
   "Embedded Linux",
   "C/C++",
@@ -15,13 +17,16 @@ const expertise = [
   "Cellular Communication",
   "Edge AI",
   "System Architecture",
+  "Buildroot / Yocto / OpenWrt",
+  "Zephyr RTOS",
+  "Testing and CI/CD",
 ];
 
 const focusAreas = [
   {
-    title: "Embedded Linux Platforms",
+    title: "Linux Platforms and BSP",
     description:
-      "Linux-based device software, local HMI, system services, networking, configuration interfaces, and production-oriented integration.",
+      "Buildroot, Yocto, and OpenWrt platforms covering bootloader, kernel, RootFS, systemd, board bring-up, device software, and production integration.",
   },
   {
     title: "Hardware/Software Integration",
@@ -34,9 +39,9 @@ const focusAreas = [
       "Practical embedded products such as vending machines, conference systems, dataloggers, generator controllers, and connected industrial devices.",
   },
   {
-    title: "Edge AI and Intelligent Devices",
+    title: "Quality and Product Delivery",
     description:
-      "Embedded systems that combine AI/robotics background with real hardware constraints, device-level software, and edge deployment needs.",
+      "Unit and smoke testing, cross-layer validation, production debugging, and repeatable GitLab CI/CD releases for real embedded products.",
   },
 ];
 ---
@@ -55,6 +60,12 @@ const focusAreas = [
       <p class="summary">
         {site.summary}
       </p>
+
+      <div class="career-proof" aria-label="Career highlights">
+        <div><strong>7+ years</strong><span>Embedded engineering</span></div>
+        <div><strong>Linux + MCU</strong><span>Platform range</span></div>
+        <div><strong>Product delivery</strong><span>Prototype to release</span></div>
+      </div>
 
       <div class="links">
         <a class="button" href={`mailto:${site.email}`}>Email</a>
@@ -107,7 +118,7 @@ const focusAreas = [
       </div>
 
       <div class="projects">
-        {projects.map((project) => (
+        {featuredProjects.map((project) => (
           <ProjectCard project={project} />
         ))}
       </div>
@@ -123,7 +134,7 @@ const focusAreas = [
   .eyebrow {
     color: #67e8f9;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0;
   }
 
   h1 {
@@ -152,6 +163,38 @@ const focusAreas = [
     gap: 14px;
     margin-top: 32px;
     flex-wrap: wrap;
+  }
+
+  .career-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    max-width: 820px;
+    margin-top: 32px;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    background: rgba(148, 163, 184, 0.22);
+  }
+
+  .career-proof div {
+    padding: 18px;
+    background: rgba(15, 23, 42, 0.88);
+  }
+
+  .career-proof strong,
+  .career-proof span {
+    display: block;
+  }
+
+  .career-proof strong {
+    color: #67e8f9;
+  }
+
+  .career-proof span {
+    margin-top: 5px;
+    color: #94a3b8;
+    font-size: 13px;
   }
 
   .section-header {
@@ -214,6 +257,10 @@ const focusAreas = [
     .section-header {
       align-items: flex-start;
       flex-direction: column;
+    }
+
+    .career-proof {
+      grid-template-columns: 1fr;
     }
   }
 </style>

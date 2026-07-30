@@ -1,13 +1,13 @@
 export const site = {
   name: "Pouria Alaei",
-  role: "Senior Embedded Software Engineer",
+  role: "Embedded Software Engineer",
   url: "https://pouria-alaei.github.io",
   title: "Pouria Alaei | Embedded Software Engineer",
   description:
     "Portfolio of Pouria Alaei, Embedded Software Engineer focused on Embedded Linux, Edge AI, industrial embedded systems, and Hardware/Software Integration.",
-  tagline: "Embedded Linux • Edge AI • Hardware/Software Integration",
+  tagline: "Embedded Linux | Firmware | Hardware/Software Integration",
   summary:
-    "I design and build production-ready embedded systems that combine software, electronics, Linux, connectivity, and AI at the edge.",
+    "I build production embedded systems across Linux platforms, BSP and board bring-up, C/C++ device software, connectivity, testing, and edge AI. My work spans the full path from hardware constraints to maintainable product releases.",
   email: "pouria.alaei.dev@gmail.com",
   github: "https://github.com/pouria-alaei",
   telegram: "https://t.me/Pooria_Alaei",

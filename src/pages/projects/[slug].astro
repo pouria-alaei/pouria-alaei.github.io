@@ -17,241 +17,374 @@ const hasImages = project.gallery.length > 0;
   title={`${project.title} | Pouria Alaei`}
   description={project.subtitle}
 >
-  <main class="page">
-    <section class="section hero">
-      <a class="back" href="/projects">← Back to projects</a>
+  <main>
+    <section class="hero">
+      <div class="page">
+        <a class="back" href="/projects">← All projects</a>
 
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow">Featured Project</p>
-          <h1>{project.title}</h1>
-          <p class="lead">{project.subtitle}</p>
+        <p class="eyebrow">{project.projectType}</p>
+        <h1>{project.title}</h1>
+        <p class="lead">{project.subtitle}</p>
 
-          <div class="tags hero-tags">
-            {project.tags.map((tag) => <span>{tag}</span>)}
+        <div class="hero-meta">
+          <div>
+            <span>Organization</span>
+            <strong>{project.organization}</strong>
           </div>
+          <div>
+            <span>Period</span>
+            <strong>{project.period}</strong>
+          </div>
+          {project.headlineMetric && (
+            <div>
+              <span>Headline result</span>
+              <strong>{project.headlineMetric}</strong>
+            </div>
+          )}
         </div>
-
-        <aside class="project-summary-card">
-          <p class="summary-label">Project Type</p>
-          <strong>{project.tags[0]}</strong>
-
-          <p class="summary-label">Main Focus</p>
-          <strong>Hardware/Software Integration</strong>
-
-          <p class="summary-label">Status</p>
-          <strong>{hasImages ? "Visual evidence added" : "Images pending review"}</strong>
-        </aside>
       </div>
     </section>
 
-    <section class="visual-section card">
-      <div>
-        <p class="eyebrow">Visual Evidence</p>
-        <h2>{hasImages ? "Project images" : "Images will be added after review."}</h2>
-        <p>
-          Real hardware photos, Altium screenshots, UI screenshots, and deployment images
-          will be added only after removing sensitive customer, product, and implementation details.
-        </p>
+    <section class="project-nav">
+      <div class="page tags">
+        {project.tags.map((tag) => <span>{tag}</span>)}
       </div>
+    </section>
 
-      {hasImages ? (
-        <div class="gallery">
-          {project.gallery.map((image) => (
-            <img src={image} alt={`${project.title} project image`} loading="lazy" />
+    <section class="content-band">
+      <div class="page two-column">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>The product and its context</h2>
+        </div>
+        <p class="body-large">{project.summary}</p>
+      </div>
+    </section>
+
+    <section class="content-band">
+      <div class="page two-column">
+        <div>
+          <p class="section-label">Engineering challenge</p>
+          <h2>Constraints that shaped the work</h2>
+        </div>
+        <p class="body-large">{project.problem}</p>
+      </div>
+    </section>
+
+    <section class="content-band">
+      <div class="page two-column">
+        <div>
+          <p class="section-label">My role</p>
+          <h2>Scope and ownership</h2>
+        </div>
+        <p class="body-large">{project.role}</p>
+      </div>
+    </section>
+
+    <section class="content-band">
+      <div class="page two-column">
+        <div>
+          <p class="section-label">Implementation</p>
+          <h2>Key engineering work</h2>
+        </div>
+        <ol class="work-list">
+          {project.keyWork.map((item) => <li>{item}</li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="results-band">
+      <div class="page">
+        <p class="section-label">Results</p>
+        <h2>What changed because of the work</h2>
+        <div class="results-grid">
+          {project.outcomes.map((outcome) => (
+            <article>
+              <span aria-hidden="true">✓</span>
+              <p>{outcome}</p>
+            </article>
           ))}
         </div>
-      ) : (
-        <div class="image-placeholder">
-          <span>Project Images</span>
-        </div>
-      )}
+      </div>
     </section>
 
-    <section class="case-study">
-      <article class="card">
-        <h2>Overview</h2>
-        <p>{project.summary}</p>
-      </article>
-
-      <article class="card">
-        <h2>Engineering Challenge</h2>
-        <p>{project.problem}</p>
-      </article>
-
-      <article class="card">
-        <h2>My Role</h2>
-        <p>{project.role}</p>
-      </article>
-
-      <article class="card">
-        <h2>Key Engineering Work</h2>
-        <ul>
-          {project.keyWork.map((item) => <li>{item}</li>)}
+    <section class="content-band">
+      <div class="page two-column">
+        <div>
+          <p class="section-label">Evidence of capability</p>
+          <h2>What this project demonstrates</h2>
+        </div>
+        <ul class="capability-list">
+          {project.capabilities.map((capability) => <li>{capability}</li>)}
         </ul>
-      </article>
+      </div>
+    </section>
 
-      <article class="card">
-        <h2>Result / Impact</h2>
-        <p>{project.impact}</p>
-      </article>
+    {hasImages && (
+      <section class="content-band">
+        <div class="page">
+          <p class="section-label">Visual evidence</p>
+          <h2>Hardware, interfaces, and deployment</h2>
+          <div class="gallery">
+            {project.gallery.map((image) => (
+              <img src={image} alt={`${project.title} project evidence`} loading="lazy" />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
-      <article class="card note">
-        <h2>Confidentiality Note</h2>
+    <section class="confidentiality">
+      <div class="page">
+        <strong>Confidentiality</strong>
         <p>{project.confidentialityNote}</p>
-      </article>
+      </div>
     </section>
   </main>
 </BaseLayout>
 
 <style>
   .hero {
-    padding-bottom: 32px;
+    padding: 64px 0 48px;
   }
 
   .back {
     display: inline-block;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
     color: #67e8f9;
     text-decoration: none;
     font-weight: 700;
   }
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 28px;
-    align-items: start;
-  }
-
-  .eyebrow {
+  .eyebrow,
+  .section-label {
+    margin: 0;
     color: #67e8f9;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
   }
 
   h1 {
-    max-width: 980px;
+    max-width: 920px;
     margin: 12px 0 0;
     font-size: clamp(40px, 7vw, 72px);
     line-height: 1.05;
   }
 
   .lead {
-    max-width: 780px;
+    max-width: 880px;
+    margin: 22px 0 0;
     color: #cbd5e1;
     font-size: 20px;
     line-height: 1.7;
   }
 
-  .hero-tags {
-    margin-top: 28px;
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 44px;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    background: rgba(148, 163, 184, 0.22);
   }
 
-  .project-summary-card {
-    border: 1px solid rgba(103, 232, 249, 0.28);
-    background: rgba(15, 23, 42, 0.78);
-    border-radius: 22px;
-    padding: 24px;
+  .hero-meta div {
+    min-height: 112px;
+    padding: 20px;
+    background: #0b1425;
   }
 
-  .summary-label {
-    margin: 18px 0 6px;
+  .hero-meta span,
+  .hero-meta strong {
+    display: block;
+  }
+
+  .hero-meta span {
+    margin-bottom: 10px;
     color: #94a3b8;
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 800;
   }
 
-  .summary-label:first-child {
-    margin-top: 0;
-  }
-
-  .project-summary-card strong {
-    display: block;
+  .hero-meta strong {
     color: #e5eef7;
-    line-height: 1.4;
+    line-height: 1.45;
   }
 
-  .visual-section {
+  .project-nav {
+    padding: 20px 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(15, 23, 42, 0.55);
+  }
+
+  .content-band,
+  .results-band {
+    padding: 64px 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  }
+
+  .two-column {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
-    gap: 24px;
-    align-items: center;
-    margin-bottom: 18px;
-  }
-
-  .visual-section h2 {
-    margin: 8px 0 0;
-  }
-
-  .image-placeholder {
-    min-height: 220px;
-    border: 1px dashed rgba(103, 232, 249, 0.45);
-    border-radius: 20px;
-    display: grid;
-    place-items: center;
-    background:
-      linear-gradient(135deg, rgba(103, 232, 249, 0.08), transparent),
-      rgba(2, 6, 23, 0.45);
-  }
-
-  .image-placeholder span {
-    color: #67e8f9;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 13px;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 16px;
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    background: rgba(2, 6, 23, 0.45);
-  }
-
-  .case-study {
-    display: grid;
-    gap: 18px;
-    padding-bottom: 80px;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+    gap: 64px;
+    align-items: start;
   }
 
   h2 {
-    margin-top: 0;
-    color: #93c5fd;
+    margin: 10px 0 0;
+    color: #e5eef7;
+    font-size: 28px;
+    line-height: 1.2;
   }
 
-  p,
-  li {
+  .body-large {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .work-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: work;
+  }
+
+  .work-list li {
+    counter-increment: work;
+    position: relative;
+    padding: 0 0 22px 48px;
     color: #cbd5e1;
     line-height: 1.7;
   }
 
-  ul {
+  .work-list li::before {
+    content: counter(work, decimal-leading-zero);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #67e8f9;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .results-band {
+    background: rgba(15, 23, 42, 0.52);
+  }
+
+  .results-band h2 {
+    max-width: 720px;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 32px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(148, 163, 184, 0.22);
+  }
+
+  .results-grid article {
+    min-height: 150px;
+    padding: 24px;
+    background: #0b1425;
+  }
+
+  .results-grid span {
+    color: #67e8f9;
+    font-weight: 900;
+  }
+
+  .results-grid p {
+    margin: 14px 0 0;
+    color: #e5eef7;
+    line-height: 1.65;
+  }
+
+  .capability-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
     margin: 0;
-    padding-left: 20px;
+    padding: 0;
+    list-style: none;
   }
 
-  li + li {
-    margin-top: 10px;
+  .capability-list li {
+    padding: 14px 16px;
+    border-left: 3px solid #67e8f9;
+    background: rgba(15, 23, 42, 0.6);
+    color: #e5eef7;
+    font-weight: 700;
   }
 
-  .note {
-    border-color: rgba(103, 232, 249, 0.25);
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 28px;
   }
 
-  @media (max-width: 860px) {
-    .hero-grid,
-    .visual-section {
+  .gallery img {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 8px;
+  }
+
+  .confidentiality {
+    padding: 28px 0 72px;
+  }
+
+  .confidentiality .page {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  .confidentiality strong {
+    color: #93c5fd;
+  }
+
+  .confidentiality p {
+    margin: 0;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      padding-top: 44px;
+    }
+
+    .back {
+      margin-bottom: 36px;
+    }
+
+    .hero-meta,
+    .two-column,
+    .results-grid,
+    .capability-list,
+    .gallery,
+    .confidentiality .page {
       grid-template-columns: 1fr;
+    }
+
+    .two-column {
+      gap: 28px;
+    }
+
+    .content-band,
+    .results-band {
+      padding: 48px 0;
     }
   }
 </style>

@@ -22,14 +22,18 @@ const hasCover = Boolean(project.cover);
 
     <div class="card-top">
       <p class="project-label">{label}</p>
-      <span>→</span>
+      <span aria-hidden="true">→</span>
     </div>
 
     <h4>{project.title}</h4>
-    <p>{project.summary}</p>
+    <p class="subtitle">{project.subtitle}</p>
+
+    {project.headlineMetric && (
+      <p class="metric">{project.headlineMetric}</p>
+    )}
 
     <div class="tags">
-      {project.tags.map((tag) => <span>{tag}</span>)}
+      {project.tags.slice(0, 5).map((tag) => <span>{tag}</span>)}
     </div>
   </article>
 </a>
@@ -43,6 +47,7 @@ const hasCover = Boolean(project.cover);
   .project-card .card {
     height: 100%;
     overflow: hidden;
+    border-radius: 8px;
     transition:
       transform 160ms ease,
       border-color 160ms ease;
@@ -57,7 +62,7 @@ const hasCover = Boolean(project.cover);
   .cover-placeholder {
     width: calc(100% + 48px);
     margin: -24px -24px 22px;
-    height: 170px;
+    height: 160px;
     border-bottom: 1px solid rgba(148, 163, 184, 0.22);
   }
 
@@ -71,7 +76,6 @@ const hasCover = Boolean(project.cover);
     display: grid;
     place-items: center;
     background:
-      radial-gradient(circle at top right, rgba(103, 232, 249, 0.16), transparent 35%),
       linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(20, 184, 166, 0.08)),
       rgba(2, 6, 23, 0.55);
   }
@@ -79,7 +83,7 @@ const hasCover = Boolean(project.cover);
   .cover-placeholder span {
     color: #67e8f9;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    letter-spacing: 0;
     text-transform: uppercase;
     font-size: 12px;
     text-align: center;
@@ -99,7 +103,7 @@ const hasCover = Boolean(project.cover);
     margin: 0;
     color: #67e8f9;
     font-size: 13px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0;
     text-transform: uppercase;
   }
 
@@ -109,8 +113,17 @@ const hasCover = Boolean(project.cover);
     color: #e5eef7;
   }
 
-  p {
+  .subtitle {
     color: #cbd5e1;
     line-height: 1.65;
+  }
+
+  .metric {
+    margin: 18px 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    color: #67e8f9;
+    font-size: 14px;
+    font-weight: 800;
   }
 </style>

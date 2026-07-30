@@ -1,16 +1,18 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
 import { projects } from "../../data/projects";
 import { site } from "../../data/site";
 
 const projectCount = projects.length;
 
 const focusAreas = [
-  "Embedded Linux",
-  "Industrial Embedded Systems",
-  "Hardware/Software Integration",
-  "Firmware",
-  "Networking",
+  "Linux platforms and BSP",
+  "C/C++ device software",
+  "RTOS and bare-metal firmware",
+  "Board bring-up",
+  "Industrial networking",
+  "Testing and release engineering",
   "Edge AI",
 ];
 ---
@@ -22,29 +24,28 @@ const focusAreas = [
   <main class="page">
     <section class="section intro">
       <p class="eyebrow">Selected Work</p>
-      <h1>Engineering Projects</h1>
+      <h1>Embedded systems, built across the full stack.</h1>
 
       <p class="lead">
-        A focused selection of embedded systems, industrial devices, communication
-        platforms, and hardware/software integration projects. Each project will be
-        expanded with real photos, Altium screenshots, and deeper technical details
-        after confidentiality review.
+        These case studies expand the short claims in my resume into engineering
+        context: the constraints I worked within, the decisions and integrations I
+        owned, the measurable outcomes, and the capabilities each project demonstrates.
       </p>
 
       <div class="stats">
         <div class="stat-card">
           <strong>{projectCount}</strong>
-          <span>Featured Projects</span>
+          <span>Engineering case studies</span>
         </div>
 
         <div class="stat-card">
-          <strong>HW + SW</strong>
-          <span>Integration Focus</span>
+          <strong>7+ years</strong>
+          <span>Embedded product development</span>
         </div>
 
         <div class="stat-card">
-          <strong>Linux</strong>
-          <span>Embedded Platforms</span>
+          <strong>Linux to MCU</strong>
+          <span>Cross-layer engineering</span>
         </div>
       </div>
     </section>
@@ -59,21 +60,7 @@ const focusAreas = [
 
     <section class="projects-grid">
       {projects.map((project) => (
-        <a class="project-card" href={`/projects/${project.slug}`}>
-          <article class="card">
-            <div class="card-top">
-              <p class="project-label">Case Study</p>
-              <span>→</span>
-            </div>
-
-            <h2>{project.title}</h2>
-            <p>{project.summary}</p>
-
-            <div class="tags">
-              {project.tags.map((tag) => <span>{tag}</span>)}
-            </div>
-          </article>
-        </a>
+        <ProjectCard project={project} />
       ))}
     </section>
   </main>
@@ -92,14 +79,14 @@ const focusAreas = [
   .eyebrow {
     color: #67e8f9;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0;
   }
 
   h1 {
     max-width: 980px;
     margin: 12px 0 0;
-    font-size: clamp(44px, 7vw, 76px);
-    line-height: 1;
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.05;
   }
 
   .lead {
@@ -119,7 +106,7 @@ const focusAreas = [
   .stat-card {
     border: 1px solid rgba(148, 163, 184, 0.22);
     background: rgba(15, 23, 42, 0.62);
-    border-radius: 18px;
+    border-radius: 8px;
     padding: 18px;
   }
 
@@ -142,47 +129,4 @@ const focusAreas = [
     padding-bottom: 80px;
   }
 
-  .project-card {
-    text-decoration: none;
-  }
-
-  .project-card .card {
-    height: 100%;
-    transition:
-      transform 160ms ease,
-      border-color 160ms ease;
-  }
-
-  .project-card:hover .card {
-    transform: translateY(-4px);
-    border-color: rgba(103, 232, 249, 0.55);
-  }
-
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #67e8f9;
-    font-weight: 800;
-    margin-bottom: 18px;
-  }
-
-  .project-label {
-    margin: 0;
-    color: #67e8f9;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  h2 {
-    margin: 0;
-    font-size: 22px;
-    color: #e5eef7;
-  }
-
-  p {
-    color: #cbd5e1;
-    line-height: 1.65;
-  }
 </style>
