@@ -9,14 +9,27 @@ import { site } from "../data/site";
 >
   <main class="page">
     <section class="section intro">
-      <p class="eyebrow">About</p>
-      <h1>Engineering embedded products from hardware to software.</h1>
+      <div class="intro-copy">
+        <p class="eyebrow">About</p>
+        <h1>Engineering embedded products from hardware to software.</h1>
 
-      <p class="lead">
-        I am an Embedded Software Engineer with 7+ years of experience building
-        production systems across electronics, firmware, Embedded Linux, user
-        interfaces, networking, validation, and intelligent edge applications.
-      </p>
+        <p class="lead">
+          I am an Embedded Software Engineer with 7+ years of experience building
+          production systems across electronics, firmware, Embedded Linux, user
+          interfaces, networking, validation, and intelligent edge applications.
+        </p>
+      </div>
+
+      <figure class="portrait">
+        <img
+          src="/images/profile/pouria-alaei.jpeg"
+          alt="Portrait of Pouria Alaei"
+          width="800"
+          height="800"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
     </section>
 
     <section class="content-grid">
@@ -69,6 +82,13 @@ import { site } from "../data/site";
     letter-spacing: 0;
   }
 
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+    gap: 56px;
+    align-items: center;
+  }
+
   h1 {
     max-width: 980px;
     margin: 12px 0 0;
@@ -81,6 +101,20 @@ import { site } from "../data/site";
     color: #cbd5e1;
     font-size: 20px;
     line-height: 1.7;
+  }
+
+  .portrait {
+    margin: 0;
+  }
+
+  .portrait img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 8px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
   }
 
   .content-grid {
@@ -98,5 +132,17 @@ import { site } from "../data/site";
   p {
     color: #cbd5e1;
     line-height: 1.7;
+  }
+
+  @media (max-width: 760px) {
+    .intro {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .portrait {
+      order: -1;
+      width: min(100%, 320px);
+    }
   }
 </style>
